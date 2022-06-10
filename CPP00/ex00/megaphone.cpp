@@ -5,24 +5,17 @@ void PrintUpper(char **arr)
 	int i;
 	int j;
 
-	i = 0;
-	while(arr[i])
-	{
-		j = 0;
-		while(arr[i][j])
-		{
-			std::cout << (char)toupper(arr[i][j]);
-			j++;
-		}
-		i++;
+	for (i = 0; arr[i]; i++) {
+		for (j = 0; arr[i][j]; j++)
+			std::cout << (char) toupper(arr[i][j]);
 	}
 	std::cout << std::endl;
 }
 
 int main(int argc, char **argv)
 {
-	if(argc > 1)
+	if (argc > 1) {
 		PrintUpper(&argv[1]);
-	else
+	} else
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 }
