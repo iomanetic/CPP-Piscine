@@ -7,7 +7,7 @@ void PrintUpper(char **arr)
 
 	for (i = 0; arr[i]; i++) {
 		for (j = 0; arr[i][j]; j++)
-			std::cout << (char) toupper(arr[i][j]);
+			std::cout << (char)toupper(arr[i][j]);
 	}
 	std::cout << std::endl;
 }
