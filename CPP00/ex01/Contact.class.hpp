@@ -7,6 +7,8 @@
 
 //includes
 # include <iostream>
+# include <cstring>
+# include <iomanip>
 
 class Contact
 {
@@ -15,10 +17,11 @@ private:
 	std::string	_LastName;
 	std::string _Nickname;
 	std::string _DarkSecret;
-	int 		_PhoneNumber;
+	std::string _PhoneNumber;
+	size_t index;
 
 public:
-
+	void SetDflData( size_t index );
 };
 
 #endif

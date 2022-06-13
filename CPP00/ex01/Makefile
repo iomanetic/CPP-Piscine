@@ -1,7 +1,8 @@
 NAME 	= PhoneBook
 
 SRC 	= PhoneBook.class.cpp \
-		  main.cpp
+		  Contact.class.cpp \
+		  main.cpp \
 
 OBJ 	= $(patsubst %.cpp,%.o,$(SRC))
 

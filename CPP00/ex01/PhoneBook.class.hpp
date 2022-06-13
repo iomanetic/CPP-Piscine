@@ -13,8 +13,10 @@
 class PhoneBook
 {
 private:
-	Contact	_Contact;
+	Contact	_Contact[8];
 	size_t	_ContactCount;
+
+	void WelcomeMessage( void );
 
 public:
 	PhoneBook( void );

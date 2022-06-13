@@ -4,7 +4,12 @@
 
 #include "Contact.class.hpp"
 
-int	main(void)
+void Contact::SetDflData( size_t index )
 {
-	return (TRUE);
+	_FirstName = "----";
+	_LastName = "----";
+	_Nickname = "----";
+	_DarkSecret = "----";
+	_PhoneNumber = "----";
+	this->index = index;
 }
