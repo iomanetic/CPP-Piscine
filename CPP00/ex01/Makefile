@@ -17,7 +17,7 @@ $(NAME): $(OBJ)
 	g++ $(CFLAGS) $(CSTD) $(OBJ) -o $@
 
 %.o: %.c
-	g++ $(CFLAGS) $(CSTD )-c $< -o $@
+	g++ $(CFLAGS) $(CSTD) -c $< -o $@
 
 re: fclean all
 
