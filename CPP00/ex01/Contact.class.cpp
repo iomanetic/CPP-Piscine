@@ -6,9 +6,9 @@
 
 void Contact::SetDflData( size_t index )
 {
-	_FirstName = "Is emptyqddqdqd";
-	_LastName = "Is emptyqdqdqd";
-	_NickName = "Is emptyqdqd";
+	_FirstName = "Is empty";
+	_LastName = "Is empty";
+	_NickName = "Is empty";
 	_DarkSecret = "Is empty";
 	_PhoneNumber = "Is empty";
 	this->_index = index;

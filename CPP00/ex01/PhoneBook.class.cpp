@@ -42,25 +42,25 @@ void PhoneBook::SearchContact( void )
 		std::cout	<< " --------------------------------------------" << std::endl
 					<< " |INDEX | FIRST NAME | LAST NAME | NICKNAME |" << std::endl
 					<< " --------------------------------------------" << std::endl;
-		if(!this->_ContactCount)
+		if(!this->_ContactCount)                                                         //if contact list is empty print this
 		{
 			std::cout << "  PhoneBook is empty.Please use command: ADD." << std::endl;
 			return ;
 		}
-		for(int i = 0; i < this->_ContactCount; i++)
+		for(int i = 0; i < this->_ContactCount; i++)                                      //Print contact list
 			this->_Contact[i].ShowContactList();
 		std::cout << std::endl << "Please type index contact: ";
-		if(!(std::cin >> index))
+		if(!(std::cin >> index))                                                          //Get contact index
 		{
 			std::cout << "It's non numeric param.Please try again." << std::endl;
 			return ;
 		}
-		if(index > this->_ContactCount || index < 0)
+		if(index > this->_ContactCount || index < 0)                                      //If contact index > numbers of contact
 		{
 			std::cout << "Index is non valid.Please type correct index." << std::endl;
 			return ;
 		}
-		this->_Contact[index].ShowContactInfo();
+		this->_Contact[index].ShowContactInfo();                                           //Print full info about contact
 }
 
 void PhoneBook::ExitTheBook( void )
