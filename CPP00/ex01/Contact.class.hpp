@@ -24,7 +24,8 @@ private:
 
 public:
 	void SetDflData( size_t index );
-	void ShowContact( int flag );
+	void ShowContactList( void );
+	void ShowContactInfo( void );
 };
 
 #endif

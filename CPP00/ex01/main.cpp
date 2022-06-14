@@ -12,10 +12,12 @@ int main( void )
 	while(true)
 	{
 		line.clear();
+		std::cin.clear();
+		std::cout << "> ";
 		std::getline(std::cin, line);
 		if(std::cin.eof())
 		{
-			std::cout << "Line can't is clear." << std::endl;
+			std::cout << std::endl << "Line can't is clear." << std::endl;
 			std::cin.clear();
 			clearerr(stdin);
 			continue ;
@@ -25,7 +27,7 @@ int main( void )
 		else if(line == "EXIT")
 			book.ExitTheBook();
 		else if(line != "")
-			std::cout << "Command not found.Available commands: ADD, SEARCH, EXIT." << std::endl;
+			std::cout << std::endl << "Command not found.Available commands: ADD, SEARCH, EXIT." << std::endl;
 	}
 	return (0);
 }

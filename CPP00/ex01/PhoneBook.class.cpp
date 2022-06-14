@@ -4,7 +4,7 @@
 
 #include "PhoneBook.class.hpp"
 
-PhoneBook::PhoneBook( void ) : _ContactCount(2)
+PhoneBook::PhoneBook( void ) : _ContactCount(0)
 {
 	size_t index;
 
@@ -24,10 +24,10 @@ PhoneBook::~PhoneBook( void )
 
 void PhoneBook::_WelcomeMessage( void ) const
 {
-	std::cout << std::right << std::setw(40) << "Welcome to the Phone Book!" << "You can pick actions:" << std::endl
-				<< std::right << std::setw(45) << "1 - ADD(Add new contact)." << std::endl
-				<< std::right << std::setw(47) << "2 - SEARCH(Search contact)." << std::endl
-				<< std::right << std::setw(48) << "3 - EXIT(exit at Phone Book." << std::endl;
+	std::cout << std::setw(40) << "Welcome to the Phone Book!" << "You can pick actions:" << std::endl
+				<< std::setw(45) << "1 - ADD(Add new contact)." << std::endl
+				<< std::setw(47) << "2 - SEARCH(Search contact)." << std::endl
+				<< std::setw(48) << "3 - EXIT(exit at Phone Book." << std::endl;
 }
 
 void PhoneBook::AddContact( void )
@@ -37,35 +37,30 @@ void PhoneBook::AddContact( void )
 
 void PhoneBook::SearchContact( void )
 {
-	if(!this->_ContactCount)
-		std::cout << "PhoneBook is empty.Please use command: ADD." << std::endl;
-	else
-	{
 		int index;
 
-		for(int i = 0; i < this->_ContactCount; i++)
-			this->_Contact[i].ShowContact( 0 );
-		std::cout << "Please type index contact: ";
-		while(!(std::cin >> index))
+		std::cout	<< " --------------------------------------------" << std::endl
+					<< " |INDEX | FIRST NAME | LAST NAME | NICKNAME |" << std::endl
+					<< " --------------------------------------------" << std::endl;
+		if(!this->_ContactCount)
 		{
-			std::cout << "Please type correct index: ";
-			if(std::cin.eof())
-			{
-				std::cin.clear();
-				clearerr(stdin);
-				continue ;
-			}
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<int>::max(), '\n');
-			clearerr(stdin);
+			std::cout << "  PhoneBook is empty.Please use command: ADD." << std::endl;
+			return ;
+		}
+		for(int i = 0; i < this->_ContactCount; i++)
+			this->_Contact[i].ShowContactList();
+		std::cout << std::endl << "Please type index contact: ";
+		if(!(std::cin >> index))
+		{
+			std::cout << "It's non numeric param.Please try again." << std::endl;
+			return ;
 		}
 		if(index > this->_ContactCount || index < 0)
 		{
 			std::cout << "Index is non valid.Please type correct index." << std::endl;
 			return ;
 		}
-		this->_Contact[index].ShowContact( 1 );
-	}
+		this->_Contact[index].ShowContactInfo();
 }
 
 void PhoneBook::ExitTheBook( void )
