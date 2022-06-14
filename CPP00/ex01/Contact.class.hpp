@@ -12,6 +12,11 @@
 
 class Contact
 {
+public:
+	void ShowContactPrev( void ) const;
+	void ShowContactInfo( void ) const;
+	bool SetContact( size_t ContactCount );
+
 private:
 	std::string	_FirstName;
 	std::string	_LastName;
@@ -22,11 +27,6 @@ private:
 
 	void _PrintContact( std::string field ) const;
 	bool _WriteContactData( const char *message, std::string &field );
-
-public:
-	void ShowContactPrev( void ) const;
-	void ShowContactInfo( void ) const;
-	bool SetContact( size_t ContactCount );
 };
 
 #endif
