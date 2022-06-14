@@ -15,13 +15,16 @@ class Contact
 private:
 	std::string	_FirstName;
 	std::string	_LastName;
-	std::string _Nickname;
+	std::string _NickName;
 	std::string _DarkSecret;
 	std::string _PhoneNumber;
-	size_t index;
+	size_t _index;
+
+	void PrintContact( std::string field );
 
 public:
 	void SetDflData( size_t index );
+	void ShowContact( int flag );
 };
 
 #endif

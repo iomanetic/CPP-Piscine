@@ -11,14 +11,21 @@ int main( void )
 
 	while(true)
 	{
+		line.clear();
 		std::getline(std::cin, line);
-		if(line.empty())
-			std::cout << "Line can't is clear" << std::endl;
-		else
+		if(std::cin.eof())
 		{
-			if (line == "EXIT")
-				book.ExitTheBook();
+			std::cout << "Line can't is clear." << std::endl;
+			std::cin.clear();
+			clearerr(stdin);
+			continue ;
 		}
+		else if(line == "SEARCH")
+			book.SearchContact();
+		else if(line == "EXIT")
+			book.ExitTheBook();
+		else if(line != "")
+			std::cout << "Command not found.Available commands: ADD, SEARCH, EXIT." << std::endl;
 	}
 	return (0);
 }

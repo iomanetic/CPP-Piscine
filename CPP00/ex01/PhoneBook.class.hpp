@@ -12,12 +12,6 @@
 //class
 class PhoneBook
 {
-private:
-	Contact	_Contact[8];
-	size_t	_ContactCount;
-
-	void WelcomeMessage( void );
-
 public:
 	PhoneBook( void );
 	~PhoneBook( void );
@@ -25,6 +19,12 @@ public:
 	void AddContact( void );
 	void SearchContact( void );
 	void ExitTheBook( void );
+
+private:
+	Contact	_Contact[8];
+	size_t	_ContactCount;
+
+	void _WelcomeMessage( void ) const;
 };
 
 #endif
