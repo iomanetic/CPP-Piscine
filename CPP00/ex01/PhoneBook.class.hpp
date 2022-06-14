@@ -18,13 +18,14 @@ public:
 
 	void AddContact( void );
 	void SearchContact( void );
-	void ExitTheBook( void );
+	void ExitTheBook( void ) const;
 
 private:
 	Contact	_Contact[8];
 	size_t	_ContactCount;
 
 	void _WelcomeMessage( void ) const;
+	void _ShowInfo( void );
 };
 
 #endif

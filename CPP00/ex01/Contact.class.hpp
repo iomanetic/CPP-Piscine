@@ -20,12 +20,13 @@ private:
 	std::string _PhoneNumber;
 	size_t _index;
 
-	void PrintContact( std::string field );
+	void _PrintContact( std::string field ) const;
+	bool _WriteContactData( const char *message, std::string &field );
 
 public:
-	void SetDflData( size_t index );
-	void ShowContactList( void );
-	void ShowContactInfo( void );
+	void ShowContactPrev( void ) const;
+	void ShowContactInfo( void ) const;
+	bool SetContact( size_t ContactCount );
 };
 
 #endif
