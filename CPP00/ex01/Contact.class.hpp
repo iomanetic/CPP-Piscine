@@ -10,6 +10,7 @@
 # include <cstring>
 # include <iomanip>
 
+//class
 class Contact
 {
 public:

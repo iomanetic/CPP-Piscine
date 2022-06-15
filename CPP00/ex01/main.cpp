@@ -31,5 +31,5 @@ int main( void )
 		else if( !line.empty() )
 			std::cout << "Command not found.Available commands: ADD, SEARCH, EXIT." << std::endl;
 	}
-	return (0);
+	return ( 0 );
 }
