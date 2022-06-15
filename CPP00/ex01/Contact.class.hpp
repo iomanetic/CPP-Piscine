@@ -13,20 +13,20 @@
 class Contact
 {
 public:
-	void ShowContactPrev( void ) const;
-	void ShowContactInfo( void ) const;
-	bool SetContact( size_t ContactCount );
+	void showContactPrev( void ) const;
+	void showContactInfo( void ) const;
+	bool setContact( size_t contactCount );
 
 private:
-	std::string	_FirstName;
-	std::string	_LastName;
-	std::string _NickName;
-	std::string _DarkSecret;
-	std::string _PhoneNumber;
+	std::string	_firstName;
+	std::string	_lastName;
+	std::string _nickName;
+	std::string _darkSecret;
+	std::string _phoneNumber;
 	size_t _index;
 
-	void _PrintContact( std::string field ) const;
-	void _WriteContactData( const char *message, std::string &field );
+	void _printContact( std::string field ) const;
+	void _writeContactData( const char *message, std::string &field );
 };
 
 #endif

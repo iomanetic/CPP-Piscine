@@ -16,16 +16,16 @@ public:
 	PhoneBook( void );
 	~PhoneBook( void );
 
-	void AddContact( void );
-	void SearchContact( void );
-	void ExitTheBook( void ) const;
+	void addContact( void );
+	void searchContact( void );
+	void exitTheBook( void ) const;
 
 private:
-	Contact	_Contact[8];
-	size_t	_ContactCount;
+	Contact	_contact[8];
+	size_t	_contactCount;
 
-	void _WelcomeMessage( void ) const;
-	void _ShowInfo( void );
+	void _welcomeMessage( void ) const;
+	void _showInfo( void );
 };
 
 #endif

@@ -4,66 +4,66 @@
 
 #include "PhoneBook.class.hpp"
 
-PhoneBook::PhoneBook( void ) : _ContactCount(0) { }
+PhoneBook::PhoneBook( void ) : _contactCount( 0 ) { }
 
 PhoneBook::~PhoneBook( void ) { }
 
-void PhoneBook::AddContact( void )
+void PhoneBook::addContact( void )
 {
-	if(this->_Contact[this->_ContactCount % 8].SetContact(this->_ContactCount))
-		this->_ContactCount++;
+	if( this->_contact[this->_contactCount % 8].setContact( this->_contactCount ) )
+		this->_contactCount++;
 }
 
-void PhoneBook::_ShowInfo( void )
+void PhoneBook::_showInfo( void )
 {
 	std::cout << "---------------------------------------------" << std::endl
 			  << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl
 			  << "---------------------------------------------" << std::endl;
-	for(size_t index = 0; index < this->_ContactCount; index++)
-		this->_Contact[index].ShowContactPrev();
+	for( size_t index = 0; index < this->_contactCount; index++ )
+		this->_contact[index].showContactPrev();
 	std::cout << "---------------------------------------------" << std::endl;
 }
 
-void PhoneBook::SearchContact( void )
+void PhoneBook::searchContact( void )
 {
-	if(!this->_ContactCount)
+	if( !this->_contactCount )
 		std::cout << "PhoneBook is empty.You can add your first contact with - ADD" << std::endl;
 	else
 	{
-		std::string	s_index;
+		std::string	sIndex;
 		int 		index;
 
-		this->_ShowInfo();
+		this->_showInfo();
 		index = -1;
-		while(index <= 0 || index > 8)
+		while( index <= 0 || index > 8 )
 		{
 			std::cout << "Enter contact index: ";
-			std::getline(std::cin, s_index);
-			if(std::cin.eof())
+			std::getline( std::cin, sIndex );
+			if( std::cin.eof() )
 			{
 				std::cin.clear();
 				clearerr(stdin);
 				std::cout << std::endl;
 			}
-			index = atoi(s_index.c_str());
+			index = atoi( sIndex.c_str() );
 		}
-		if(index > this->_ContactCount)
+		if( index > this->_contactCount )
 			std::cout << "Non valid index.Please try again" << std::endl;
 		else
-			this->_Contact[index - 1].ShowContactInfo();
+			this->_contact[index - 1].showContactInfo();
 	}
 }
 
-void PhoneBook::ExitTheBook( void ) const
+void PhoneBook::exitTheBook( void ) const
 {
 	std::cout << "See you later..." << std::endl;
-	exit (0);
+	exit ( 0 );
 }
 
-void PhoneBook::_WelcomeMessage( void ) const
+void PhoneBook::_welcomeMessage( void ) const
 {
-	std::cout << std::setw(40) << "Welcome to the Phone Book!" << "You can pick actions:" << std::endl
-			  << std::setw(45) << "1 - ADD(Add new contact)." << std::endl
-			  << std::setw(47) << "2 - SEARCH(Search contact)." << std::endl
-			  << std::setw(48) << "3 - EXIT(exit at Phone Book." << std::endl;
+	std::cout << std::setw( 40 ) << "Welcome to the Phone Book!" << "You can pick actions:" << std::endl
+			  << std::setw( 45 ) << "1 - ADD(Add new contact)." << std::endl
+			  << std::setw( 47 ) << "2 - SEARCH(Search contact)." << std::endl
+			  << std::setw( 48 ) << "3 - EXIT(exit at Phone Book." << std::endl;
 }
