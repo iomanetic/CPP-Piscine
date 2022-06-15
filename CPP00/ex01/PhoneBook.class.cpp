@@ -19,8 +19,8 @@ void PhoneBook::_ShowInfo( void )
 	std::cout << "---------------------------------------------" << std::endl
 			  << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl
 			  << "---------------------------------------------" << std::endl;
-	for(int i = 0; i < this->_ContactCount; i++)
-		this->_Contact[i].ShowContactPrev();
+	for(size_t index = 0; index < this->_ContactCount; index++)
+		this->_Contact[index].ShowContactPrev();
 	std::cout << "---------------------------------------------" << std::endl;
 }
 
@@ -30,28 +30,27 @@ void PhoneBook::SearchContact( void )
 		std::cout << "PhoneBook is empty.You can add your first contact with - ADD" << std::endl;
 	else
 	{
-		int index;
+		std::string	s_index;
+		int 		index;
 
 		this->_ShowInfo();
-		std::cout << "Enter index: ";
-		while(!(std::cin >> index))
+		index = -1;
+		while(index <= 0 || index > 8)
 		{
-			std::cout << std::endl << "Enter index: ";
+			std::cout << "Enter contact index: ";
+			std::getline(std::cin, s_index);
 			if(std::cin.eof())
 			{
 				std::cin.clear();
 				clearerr(stdin);
-				continue ;
+				std::cout << std::endl;
 			}
-			std::cin.clear();
-			clearerr(stdin);
-			std::cin.ignore(1000, '\n');
+			index = atoi(s_index.c_str());
 		}
-		std::cin.ignore(1000, '\n');
-		if(index + 1 > this->_ContactCount || index < 0)
-			std::cout << "Non valid index.Please try again." << std::endl;
+		if(index > this->_ContactCount)
+			std::cout << "Non valid index.Please try again" << std::endl;
 		else
-			this->_Contact[index].ShowContactInfo();
+			this->_Contact[index - 1].ShowContactInfo();
 	}
 }
 

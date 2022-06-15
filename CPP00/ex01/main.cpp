@@ -17,9 +17,9 @@ int main( void )
 		std::getline(std::cin, line);
 		if(std::cin.eof())
 		{
-			std::cout << std::endl << "Line can't is clear." << std::endl;
 			std::cin.clear();
 			clearerr(stdin);
+			std::cout << std::endl;
 			continue ;
 		}
 		else if(line == "ADD")

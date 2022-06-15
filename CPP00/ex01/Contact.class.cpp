@@ -6,17 +6,13 @@
 
 bool Contact::SetContact( size_t ContactCont )
 {
-	this->_index = ContactCont % 8;
-	if(!this->_WriteContactData("Enter your first name: ", this->_FirstName))
-		return (false);
-	if(!this->_WriteContactData("Enter your lase name: ", this->_LastName))
-		return (false);
-	if(!this->_WriteContactData("Enter your nickname: ", this->_NickName))
-		return (false);
-	if(!this->_WriteContactData("Enter your dark secret: " ,this->_DarkSecret))
-		return (false);
-	if(!this->_WriteContactData("Enter your phone number: ", this->_PhoneNumber))
-		return (false);
+	std::cout << std::endl << "Fields can't empty.Watch out for this..." << std::endl;
+	this->_index = ContactCont % 8 + 1;
+	this->_WriteContactData("Enter your first name: ", this->_FirstName);
+	this->_WriteContactData("Enter your last name: ", this->_LastName);
+	this->_WriteContactData("Enter your nickname: ", this->_NickName);
+	this->_WriteContactData("Enter your dark secret: " ,this->_DarkSecret);
+	this->_WriteContactData("Enter your phone number: ", this->_PhoneNumber);
 	if(ContactCont == 8)
 		return (false);
 	return (true);
@@ -54,16 +50,25 @@ void Contact::_PrintContact( std::string field ) const
 	std::cout << "|";
 }
 
-bool Contact::_WriteContactData( const char *message, std::string &field )
+void Contact::_WriteContactData( const char *message, std::string &field )
 {
-	std::cout << message;
-	std::getline(std::cin, field);
-	if(std::cin.eof() || field.empty())
+	bool flag;
+
+	flag = true;
+	while(flag)
 	{
-		std::cout << std::endl << "Info can't is empty.Please try again" << std::endl;
-		std::cin.clear();
-		clearerr(stdin);
-		return (false);
+		std::cout << message;
+		std::getline(std::cin, field);
+		if(std::cin.eof())
+		{
+			std::cin.clear();
+			clearerr(stdin);
+			std::cout << std::endl;
+			continue ;
+		}
+		else if(field.empty())
+			continue ;
+		else
+			flag = false;
 	}
-	return (true);
 }

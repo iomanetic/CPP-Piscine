@@ -26,7 +26,7 @@ private:
 	size_t _index;
 
 	void _PrintContact( std::string field ) const;
-	bool _WriteContactData( const char *message, std::string &field );
+	void _WriteContactData( const char *message, std::string &field );
 };
 
 #endif
