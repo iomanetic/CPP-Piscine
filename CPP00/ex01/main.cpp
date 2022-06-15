@@ -28,7 +28,7 @@ int main( void )
 			book.SearchContact();
 		else if(line == "EXIT")
 			book.ExitTheBook();
-		else if(line != "")
+		else if(!line.empty())
 			std::cout << "Command not found.Available commands: ADD, SEARCH, EXIT." << std::endl;
 	}
 	return (0);
