@@ -15,6 +15,15 @@
 
 int		main( void ) {
 
+//	Account test(20);
+//	Account test2(20);
+//
+//	test.makeWithdrawal(20);
+//	test.makeDeposit(100);
+//	test2.makeDeposit(100);
+//	test2.makeDeposit(100);
+//	test.displayStatus();
+//	Account::displayAccountsInfos();
 	typedef std::vector<Account::t>							  accounts_t;
 	typedef std::vector<int>								  ints_t;
 	typedef std::pair<accounts_t::iterator, ints_t::iterator> acc_int_t;

@@ -13,6 +13,8 @@
 #define __ACCOUNT_H__
 
 # include <ctime>
+# include <iostream>
+# include <iomanip>
 
 // ************************************************************************** //
 //                               Account Class                                //
@@ -54,7 +56,7 @@ private:
 	int				_nbDeposits;
 	int				_nbWithdrawals;
 
-	Account( void );
+//	Account( void );
 
 };
 
