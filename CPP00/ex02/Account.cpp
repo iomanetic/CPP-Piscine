@@ -127,3 +127,5 @@ void	Account::_displayTimestamp( void )
 			  << std::setw( 2 ) << now->tm_sec
 			  << ']' << ' ';
 }
+
+Account::Account( void ) { }
