@@ -24,7 +24,13 @@ _nbWithdrawals( 0 )
 			  << "created" << '\n';
 }
 
-Account::~Account() { }
+Account::~Account()
+{
+	this->_displayTimestamp();
+	std::cout << "index:" << this->_accountIndex << ';'
+			  << "amount:" << this->_amount << ';'
+			  << "closed" << '\n';
+}
 
 int	Account::getNbAccounts( void )
 {
@@ -72,19 +78,23 @@ void	Account::makeDeposit( int deposit )
 
 bool	Account::makeWithdrawal( int withdrawal )
 {
+	this->_amount -= withdrawal;
 	this->_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ';'
-			  << "p_amount:" << this->_amount << ';';
-	if( withdrawal > this->_amount )
+			  << "p_amount:" << this->_amount + withdrawal << ';';
+	if( !this->checkAmount() )
+	{
 		std::cout << "withdrawal:" << "refused" << '\n';
+		this->_amount += withdrawal;
+	}
 	else
 	{
 		this->_totalNbWithdrawals++;
 		this->_nbWithdrawals++;
-		std::cout << "withdrawal:" << withdrawal << ';'
-				  << "amount:" << this->_amount - withdrawal << ';'
-				  << "nb_withdrawal:" << this->_nbWithdrawals << '\n';
 		this->_totalAmount -= withdrawal;
+		std::cout << "withdrawal:" << withdrawal << ';'
+				  << "amount:" << this->_amount<< ';'
+				  << "nb_withdrawals:" << this->_nbWithdrawals << '\n';
 		return ( true );
 	}
 	return ( false );
@@ -99,16 +109,21 @@ void	Account::displayAccountsInfos( void )
 			  << "withdrawals:" << Account::getNbWithdrawals() << '\n';
 }
 
+int		Account::checkAmount( void ) const
+{
+	return ( this->_amount < 0 ? 0 : 1 );
+}
+
 //Get today's time
 void	Account::_displayTimestamp( void )
 {
-	std::time_t t = std::time(0);
-	std::tm* now = std::localtime(&t);
-	std::cout  << '[' << std::setfill('0') << (now->tm_year + 1900)
-			  << std::setw(2) << (now->tm_mon + 1)
-			  << std::setw(2) <<  now->tm_mday << '_'
-			  << std::setw(2) << now->tm_hour
-			  << std::setw(2) << now->tm_min
-			  << std::setw(2) << now->tm_sec
+	std::time_t t = std::time( 0 );
+	std::tm* now = std::localtime( &t );
+	std::cout  << '[' << std::setfill( '0') << ( now->tm_year + 1900 )
+			  << std::setw( 2 ) << ( now->tm_mon + 1 )
+			  << std::setw( 2 ) <<  now->tm_mday << '_'
+			  << std::setw( 2 ) << now->tm_hour
+			  << std::setw( 2 ) << now->tm_min
+			  << std::setw( 2 ) << now->tm_sec
 			  << ']' << ' ';
 }
