@@ -4,7 +4,10 @@
 
 #include "PhoneBook.class.hpp"
 
-PhoneBook::PhoneBook( void ) : _contactCount( 0 ) { }
+PhoneBook::PhoneBook( void ) : _contactCount( 0 )
+{
+	this->_welcomeMessage();
+}
 
 PhoneBook::~PhoneBook( void ) { }
 
@@ -47,7 +50,7 @@ void PhoneBook::searchContact( void )
 			}
 			index = atoi( sIndex.c_str() );
 		}
-		if( index > this->_contactCount )
+		if( index > (int)this->_contactCount )
 			std::cout << "Non valid index.Please try again" << std::endl;
 		else
 			this->_contact[index - 1].showContactInfo();

@@ -16,7 +16,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	g++ $(CFLAGS) $(CSTD) $(OBJ) -o $@
 
-%.o: %.c
+%.o: %.cpp
 	g++ $(CFLAGS) $(CSTD) -c $< -o $@
 
 re: fclean all
